@@ -3,17 +3,19 @@ package baseball;
 import java.util.Scanner;
 
 public class Application {
-
-    public void checkBallCount(){
-
-    }
-
-    public void makeNumber(){
-
-    }
-
     public static void main(String[] args) {
-        //TODO: 숫자 야구 게임 구현
-        Scanner sc = new Scanner(System.in);
+        Computer computer = new Computer();
+        Game game = new Game();
+
+        try {
+            do {
+                int[] answer = computer.generateAnswer();
+                game.tryAnswer(answer);
+            }
+            while (game.startGame());
+        }
+        catch(IllegalArgumentException e){
+            System.exit(0);
+        }
     }
 }
